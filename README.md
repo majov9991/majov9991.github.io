@@ -1,1 +1,1 @@
-# majov9991.github.io hello world
+# majov9991.github.io
