@@ -1,0 +1,249 @@
+$colores: (
+    "negro": black,
+    "blanco": white,
+    "rosa": pink,
+    "rojizo": rgb(125, 63, 73)
+);
+
+$fuente: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+@mixin mixin_fuente($arg1, $arg2) {
+    font-size: $arg1;
+    font-family: $fuente; 
+    color: $arg2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 150px auto;
+    align-items: center;
+    padding: 30px;
+}
+
+body {
+    background-image: url(../img/fondo10.jpg);
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+#navbar {
+    background-color: map-get($colores , "rosa");
+}
+
+.accordion-button {
+    color: map-get($colores , "negro") !important;
+    background-color: map-get($colores , "rosa") !important;
+}
+
+.luna {
+    display: grid;
+    grid-template-columns: 150px auto;
+
+    img {
+        width: 150px;
+        height: 150px;
+
+        @media (min-width: 992px) {
+            position: relative;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 3rem;
+        @include mixin_fuente(3rem, map-get($colores , "blanco"));
+    }
+}
+
+.slide {
+    margin-top: 0px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+
+    img {
+        height: 70%;
+
+        @media(max-width: 992px) {
+            width: 100%;
+        }
+    }
+}
+
+.baner_ig {
+    height: 45rem;
+    width: 100%;
+    padding-bottom: 30px;
+
+    @media (max-width: 850px) {
+        height: 100%;
+    }
+}
+
+.baner {
+    @media (max-width: 850px) {
+        position: relative;
+        margin-top: 2rem;
+    }
+
+    position: absolute;
+    background-color: map-get($colores , "blanco");
+    color: map-get($colores , "negro");
+    text-align: center;
+    width: 100%;
+    margin-top: 16rem;
+    padding: 30px;
+
+    a {
+        text-decoration: none;
+        @include mixin_fuente(30px, map-get($colores , "rosa"));
+        background-color: map-get($colores , "negro");
+        padding: 8px;
+    }
+
+}
+
+.novedades {
+    width: 100%;
+    border: map-get($colores , "blanco") 3px solid;
+    @include mixin_fuente(20px, map-get($colores , "blanco"));
+}
+
+.novedades--box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(125, 63, 73, 1) 83%);
+    padding-top: 30px;
+
+    @media (min-width: 992px) {
+        text-align: center;
+        padding-top: 10px;
+    }
+}
+
+.controls {
+    width: 100%;
+    background-color: map-get($colores , "rosa");
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 3px solid map-get($colores , "negro");
+}
+
+.novedades--comprar {
+    background: linear-gradient(0deg, rgba(125, 63, 73, 1) 0%, rgba(0, 0, 0, 1) 46%);
+    padding: 40px 40px 40px 40px;
+    text-align: center;
+
+    b {
+        color: map-get($colores , "negro");
+        background-color: map-get($colores , "rosa");
+        padding: 10px 10px 10px 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: map-get($colores , "rosa");
+    }
+}
+
+.como_comprar_body {
+    margin-top: 40px;
+
+    iframe {
+        width: 100%;
+    }
+}
+
+.pie_pagina {
+    width: 100%;
+    background-color: map-get($colores , "rojizo");
+    border: map-get($colores , "blanco") 3px solid;
+
+    .grupo_1 {
+        margin: auto;
+        padding: 30px 30px;
+
+        .box {
+            figure {
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 10px;
+
+                img {
+                    width: 150px;
+                }
+            }
+
+            h2 {
+                margin-bottom: 25px;
+                @include mixin_fuente(20px, map-get($colores , "blanco"));
+            }
+
+            p {
+                color: rgb(217, 189, 189);
+                margin-bottom: 10px;
+            }
+        }
+
+        .social {
+            img {
+                display: inline-block;
+                text-decoration: none;
+                width: 25px;
+                height: 25px;
+                color: map-get($colores , "blanco");
+                margin-right: 20px;
+                text-align: center;
+            }
+
+            a {
+                text-decoration: none;
+                color: map-get($colores , "blanco");
+                text-align: center;
+            }
+        }
+    }
+
+    .grupo_2 {
+        background-color: rgb(74, 73, 73);
+        padding: 15px 10px;
+        text-align: center;
+        color: map-get($colores , "blanco");
+
+        small {
+            font-size: 15px;
+        }
+    }
+
+    @media (min-width: 720px) {
+
+        .grupo_1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 50px;
+            padding: 30px 0px;
+        }
+    }
+
+}
+
+.fixed {
+    visibility: hidden;
+
+    @media (min-width: 992px) {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+    }
+}
